@@ -13,8 +13,6 @@ void TestAssignment(char assignment[100])
 	system("./a.out > /home/welcome/debug.txt") ;
 }
 
-void CopyFileFunction(char constdir[10000]);
-
 int createAssignment(char assignment[10000])
 {
     char yn[2];
