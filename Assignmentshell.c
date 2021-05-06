@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -6,6 +7,7 @@
 #include <stdlib.h>
 
 void CopyFileFunction(char constdir[10000]);
+char* CurrentDir(char cwd[10000]);
 
 void TestAssignment(char assignment[100])
 {
@@ -16,7 +18,11 @@ void TestAssignment(char assignment[100])
 int createAssignment(char assignment[10000])
 {
     char yn[2];
-    char constdir[10000] = "/home/aditya/Documents/Function/DSA/"; //char currentdir[10000] = "geeksforgeeks2";
+    char constdir[10000]; //char currentdir[10000] = "geeksforgeeks2";
+
+    CurrentDir(constdir);
+    strcat(constdir,"/");
+    
     // Creating a directory
     printf("\n");
     strcat(constdir, assignment);
@@ -57,7 +63,17 @@ void CopyFileFunction(char constdir[10000])
 
     strcat(src, constdir);
     strcat(movFunction, src);
-    
+
     int r = system(movFunction);
     return;
+}
+
+char* CurrentDir(char cwd[10000])
+{
+
+    if (getcwd(cwd, 10000) == NULL)
+        perror("getcwd() error");
+    else
+
+    return cwd;
 }
