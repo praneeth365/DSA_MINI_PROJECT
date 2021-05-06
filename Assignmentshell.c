@@ -82,8 +82,6 @@ void update(char assignment[])
     char *pointer;
     pointer = getcwd(pointer, 500);
     pointer = strcat(pointer, "/");
-    pointer = strcat(pointer, assignment);
-    pointer = strcat(pointer, "/");
     pointer = strcat(pointer, "dist");
     rmdir(pointer);               //removing the dir created
     CopyFileFunction(assignment); //after deleting dir the call the create assignment function
