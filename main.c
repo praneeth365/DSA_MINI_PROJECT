@@ -12,7 +12,7 @@ int main(void)
     int i = 0;
     while (1)
     {
-        printf("Praneeth@varma:");
+        printf("TEAM53:");
         printf("%s>>>", getcwd(path, 100));
  
         fgets(string,100, stdin);
