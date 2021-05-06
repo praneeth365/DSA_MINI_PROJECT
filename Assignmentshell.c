@@ -79,12 +79,13 @@ char* CurrentDir(char cwd[10000])
 }
 void update(char assignment[])
 {
-    char *pointer;
+    char* pointer,pointer1;
     pointer = getcwd(pointer, 500);
     pointer = strcat(pointer, "/");
     pointer = strcat(pointer, assignment);
+    strcpy(pointer1,pointer);
     pointer = strcat(pointer, "/");
     pointer = strcat(pointer, "dist");
-    rmdir(pointer);               //removing the dir created
-    CopyFileFunction(assignment); //after deleting dir the call the create assignment function
+    rmdir(pointer);           //removing the dir created
+    CopyFileFunction(pointer1); //after deleting dir the call the copyfile function function to install the new contents
 }
