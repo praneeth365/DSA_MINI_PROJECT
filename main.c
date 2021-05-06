@@ -19,13 +19,12 @@ int main(void)
         char * command = strtok(string, " ");
         char * argument = strtok(NULL, " ");
         char* defaultargument[100]="\0" ;
+     
+         if(argument==NULL)
+           command[strlen(command)-1]="\0" ;
 
-        if(strcmp(command,"use\n")==0&&argument!=NULL)
-            strcpy(defaultargument,argument) ;
-
-        if(argument==NULL)
-            command[strlen(command)-1]="\0" ;
-
+        if(strcmp(command,"use")==0&&argument!=NULL)
+            strcpy(defaultargument,argument) 
  
         if (strcmp(command, "exit") == 0)
             break;
