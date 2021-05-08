@@ -77,17 +77,22 @@ char* CurrentDir(char cwd[10000])
 
     return cwd;
 }
-void update(char assignment[])
+void UpdateAssignment(char assignment[])
 {
-    char* pointer,pointer1;
-    pointer = getcwd(pointer, 500);
-    pointer = strcat(pointer, "/");
-    pointer = strcat(pointer, assignment);
-    strcpy(pointer1,pointer);
-    pointer = strcat(pointer, "/");
-    pointer = strcat(pointer, "dist");
-    rmdir(pointer);           //removing the dir created
-    CopyFileFunction(pointer1); //after deleting dir the call the copyfile function function to install the new contents
+    char pointer[300], pointer1[300];
+    memset(pointer, '\0', sizeof(pointer));   //initializing the all char in the pointer to null
+    memset(pointer1, '\0', sizeof(pointer1)); //intializing the all char in the pointer1 to null
+    char pointer2[400] = "rm -r ";
+    getcwd(pointer, 500); //let the path of current dir be path(a string indicating path)
+    strcat(pointer, "/");
+    strcat(pointer, assignment);         //at this step the path is pointing to the assignment in the subject
+    strcpy(pointer1, pointer);           //copying the path to assignment to give it as argument
+    pointer[strlen(pointer) - 1] = '\0'; // making null at the end of the pointer so we cannot get mistake while using pointer
+    // to get path for dist folder in assignment
+    strcat(pointer, "/dist");   //pointer shows path for dist folder
+    strcat(pointer2, pointer);  // making pointer 2 as mv -v path to the dist folder in assignment
+    system(pointer2);           //this step is to remove the dist folder in the assignment
+    CopyFileFunction(pointer1); // after deleting dist the call the copyfile function function to install the new contents of the dist
 }
 
 void submit(void)// This function will zip the files in the current working directory and copys that zip file to the home directory
