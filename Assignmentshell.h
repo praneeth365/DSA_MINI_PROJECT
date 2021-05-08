@@ -3,7 +3,7 @@
 
 void Switch(char* path,char* subject) ;
 
-void CreateAssignment(char assignment[100]) ;
+int CreateAssignment(char assignment[100]) ;
 
 void UpdateAssignment(char assignment[100]) ;
 
