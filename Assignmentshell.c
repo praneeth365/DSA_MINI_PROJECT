@@ -13,13 +13,19 @@ int DiffernceFile();
 
 void TestAssignment(char assignment[100])
 {
-	system("python3 /home/welcome/submitter.py") ;
-	system("./a.out > /home/welcome/debug.txt") ;
+    char buff1[200]="\0" ;
+    getcwd(buff1,200) ;
+    strcat(buff1,"/") ;
+    strcat(buff1,assignment) ;
+    strcat(buff1,"/dist/submitter.py > debug.txt") ;
+    char buff2[200]="python3 " ;
+    strcat(buff2,buff1) ;
+    system(buff2) ;
 }
 
 
 ////////////////////////////////CREATE ASSIGNMENT///////////////////////////////////////////
-int createAssignment(char assignment[10000])
+int CreateAssignment(char assignment[10000])
 {
     char yn[2];
     char constdir[10000]; 
@@ -63,7 +69,7 @@ int createAssignment(char assignment[10000])
 void CopyFileFunction(char constdir[10000])
 {
     char movFunction[10000] = "mv -v ";
-    char src[10000] = "/home/welcome/DSA_MINI_PROJECT/dist/ ";
+    char src[10000] = "/home/welcome/Downloads/dist/ ";
 
     strcat(src, constdir);
     strcat(movFunction, src);
@@ -105,28 +111,28 @@ void UpdateAssignment(char assignment[])
 
 
 ////////////////////////////////SUBMIT ASSIGNMENT///////////////////////////////////////////
-void submit(void)// This function will zip the files in the current working directory and copys that zip file to the home directory
+void SubmitAssignment(char arg[100])// This function will zip the files in the current working directory and copys that zip file to the home directory
 {
-    char buff1[1000] ;
-    chdir("/home/welcome/DSA_MINI_PROJECT/CPRO") ;
-    getcwd(buff1,100) ;
+    char buff1[1000]="\0" ;
+    strcat(buff1,arg) ;
     char buff2[1000]="\0" ;
     strcat(buff2,"zip -r submit.zip ") ;
     strcat(buff2,buff1) ;
     system(buff2) ;
-    char buff3[1000]="\0" ;
-    strcat(buff3,buff1) ;
-    strcat(buff3,"/submit.zip ") ;
-    char buff4[1000]="/home/welcome/DSA_MINI_PROJECT" ;
-    char buff5[1000]="cp -r " ;
-    strcat(buff5,buff3) ;
-    strcat(buff5,buff4) ;
-    system(buff5) ;
-    printf(">>> ZIP FILE IS CREATED AND IT IS PRESENT IN HOME DIRECTORY\n") ;
-    strcat(buff1,"/submit.zip") ;
-    char string[100]="rm " ;
-    strcat(string,buff1) ;
-    system(string) ;
+    char buff3[100]="\0" ;
+    getcwd(buff3,100) ;
+    strcat(buff3,"/submit.zip") ;
+    char buff4[100]="\0" ;
+    strcat(buff4,"mv -v ") ;
+    strcat(buff4,buff3) ;
+    char buff5[100]="\0" ;
+    getcwd(buff5,100) ;
+    strcat(buff5,"/") ;
+    strcat(buff5,arg) ;
+    strcat(buff4," ") ;
+    strcat(buff4,buff5) ;
+    system(buff4) ; 
+    printf("ZIP FILE IS CREATED\n") ;
 }
 
 ////////////////////////////////SUBMIT ASSIGNMENT///////////////////////////////////////////
