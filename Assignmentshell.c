@@ -128,12 +128,12 @@ void SubmitAssignment(char arg[100])// This function will zip the files in the c
     char buff1[1000]="\0" ;
     strcat(buff1,arg) ;
     char buff2[1000]="\0" ;
-    strcat(buff2,"zip -r submit.zip ") ;
+    strcat(buff2,"zip -r assignment.zip ") ;
     strcat(buff2,buff1) ;
     system(buff2) ;
     char buff3[100]="\0" ;
     getcwd(buff3,100) ;
-    strcat(buff3,"/submit.zip") ;
+    strcat(buff3,"/assignment.zip") ;
     char buff4[100]="\0" ;
     strcat(buff4,"mv -v ") ;
     strcat(buff4,buff3) ;
