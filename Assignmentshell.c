@@ -22,7 +22,7 @@ void TestAssignment(char assignment[100])
 int createAssignment(char assignment[10000])
 {
     char yn[2];
-    char constdir[10000]; //char currentdir[10000] = "geeksforgeeks2";
+    char constdir[10000]; 
 
     CurrentDir(constdir);
     strcat(constdir,"/");
