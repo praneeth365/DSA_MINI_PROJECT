@@ -23,10 +23,9 @@ void TestAssignment(char assignment[100])
     strcat(buff2,buff1) ;
     system(buff2) ;
 }
-
 void Switch(char *path, char *subject)
 {
-    char path[100];
+    char path1[100]="\0";
     strcpy(path1, path);
     strcat(path1, "/");
     strcat(path1, subject);
@@ -37,7 +36,7 @@ void Switch(char *path, char *subject)
         strcat(buff2,path) ;
         strcat(buff2,"/") ;
         strcat(buff2,subject) ;
-        mkdir(buff2) ;
+        mkdir(buff2,0777) ;
         chdir(buff2) ;
     }   
 }
