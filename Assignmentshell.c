@@ -59,7 +59,7 @@ int createAssignment(char assignment[10000])
 void CopyFileFunction(char constdir[10000])
 {
     char movFunction[10000] = "mv -v ";
-    char src[10000] = "/home/aditya/Documents/Function/dist/ ";
+    char src[10000] = "/home/welcome/DSA_MINI_PROJECT/dist ";
 
     strcat(src, constdir);
     strcat(movFunction, src);
@@ -72,7 +72,7 @@ char* CurrentDir(char cwd[10000])
 {
 
     if (getcwd(cwd, 10000) == NULL)
-        perror("getcwd() error");
+        perror(">>> getcwd() error");
     else
 
     return cwd;
@@ -112,7 +112,7 @@ void submit(void)// This function will zip the files in the current working dire
     strcat(buff5,buff3) ;
     strcat(buff5,buff4) ;
     system(buff5) ;
-    printf("ZIP FILE IS CREATED AND IT IS PRESENT IN HOME DIRECTORY\n") ;
+    printf(">>> ZIP FILE IS CREATED AND IT IS PRESENT IN HOME DIRECTORY\n") ;
     strcat(buff1,"/submit.zip") ;
     char string[100]="rm " ;
     strcat(string,buff1) ;
