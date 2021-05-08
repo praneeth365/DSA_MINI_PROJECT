@@ -26,10 +26,10 @@ void TestAssignment(char assignment[100])
 
 void Switch(char *path, char *subject)
 {
-    char *path1;
+    char path[100];
     strcpy(path1, path);
-    path1 = strcat(path1, "/");
-    path1 = strcat(path1, subject);
+    strcat(path1, "/");
+    strcat(path1, subject);
     int x=chdir(path1);
     if(x!=0)
     printf("SUBJECT NOT FOUND") ;
