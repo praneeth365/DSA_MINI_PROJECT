@@ -59,7 +59,7 @@ int createAssignment(char assignment[10000])
 void CopyFileFunction(char constdir[10000])
 {
     char movFunction[10000] = "mv -v ";
-    char src[10000] = "/home/welcome/DSA_MINI_PROJECT/dist ";
+    char src[10000] = "/home/welcome/DSA_MINI_PROJECT/dist/ ";
 
     strcat(src, constdir);
     strcat(movFunction, src);
