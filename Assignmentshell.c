@@ -8,6 +8,8 @@
 
 void CopyFileFunction(char constdir[10000]);
 char* CurrentDir(char cwd[10000]);
+int md5comp();
+int DiffernceFile();
 
 void TestAssignment(char assignment[100])
 {
