@@ -32,7 +32,14 @@ void Switch(char *path, char *subject)
     strcat(path1, subject);
     int x=chdir(path1);
     if(x!=0)
-    printf("SUBJECT NOT FOUND") ;
+    {
+        char buff2[100]="\0" ;
+        strcat(buff2,path) ;
+        strcat(buff2,"/") ;
+        strcat(buff2,subject) ;
+        mkdir(buff2) ;
+        chdir(buff2) ;
+    }   
 }
 
 
@@ -148,18 +155,21 @@ void SubmitAssignment(char arg[100])// This function will zip the files in the c
 }
 
 ////////////////////////////////SUBMIT ASSIGNMENT///////////////////////////////////////////
-
 ////////////////////////////////COMPARE ASSIGNMENT///////////////////////////////////////////
 int CompareAssignment(char currentdist[100])
 {
-    char currentdist[100] = "assignment1";
     char dest[10000];
     CurrentDir(dest);
     strcat(dest, "/");
     strcat(dest, currentdist);
     strcat(dest, "/");
+    strcat(dest,"test/ ") ;
+    char file[10000]="\0" ;
 
-    char file[10000] = "assignment.zip";
+    CurrentDir(file);
+    strcat(file, "/");
+    strcat(file,currentdist) ;
+    strcat(file, "/assignment.zip");
     char unzip[10000] = "unzip ";
 
     strcat(unzip, file);
@@ -167,7 +177,7 @@ int CompareAssignment(char currentdist[100])
     strcat(unzip, dest);
 
     int zippy = system(unzip);
-    //printf("%s\n",unzip);
+    printf("%s\n",unzip);
     printf(">>> File Extracted...\n");
     md5comp(currentdist);
 
@@ -182,7 +192,7 @@ int md5comp(char currentdist[100])
     CurrentDir(file1);
     strcat(file1,"/");
     strcat(file1, currentdist);
-    strcat(file1, "dist/*  > ");
+    strcat(file1, "dist  > ");
 
     char file2[1000];
     CurrentDir(file2);
@@ -190,10 +200,10 @@ int md5comp(char currentdist[100])
     strcat(file2, currentdist);
     strcat(file2, "test/");
     strcat(file2, currentdist);
-    strcat(file2, "dist/* > ");
+    strcat(file2, "dist > ");
 
-    char command1[1000] = "md5sum ";
-    char command2[1000] = "md5sum ";
+    char command1[1000] = "md5deep -r ";
+    char command2[1000] = "md5deep -r ";
 
     char checklist1[1000];
     CurrentDir(checklist1);
@@ -206,16 +216,15 @@ int md5comp(char currentdist[100])
     strcat(checklist2, "/");
     strcat(checklist2, currentdist);
     strcat(checklist2, "checklist2.txt");
-
     strcat(command1, file1);
     strcat(command1, checklist1);
     int sys1 = system(file1);
-    //printf("%s\n", command1);
+    printf("%s\n", command1);
 
     strcat(command2, file2);
     strcat(command2, checklist2);
     int sys2 = system(file2);
-    //printf("%s\n", command2);
+    printf("%s\n", command2);
 
     DiffernceFile(checklist1, checklist2);
 
@@ -238,7 +247,7 @@ int DiffernceFile(char checklist1[1000], char checklist2[1000])
     strcat(diff, arrow);
 
     int sys3 = system(diff);
-    //printf("%s\n",diff);
+    printf("%s\n",diff);
     printf(">>> A 'DiffFiles.txt' has been created inside current Assignment\n\n");
     return 0;
     
