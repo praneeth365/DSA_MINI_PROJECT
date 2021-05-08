@@ -164,13 +164,13 @@ int md5comp(char currentdist[100])
     CurrentDir(file1);
     strcat(file1,"/");
     strcat(file1, currentdist);
-    strcat(file1, "dist/*  > "); //////////////// DO CHECKOUT FOR DIR. NAME WITH PRANEET///////////////////
+    strcat(file1, "dist/*  > ");
 
     char file2[1000];
     CurrentDir(file2);
     strcat(file2,"/");
     strcat(file2, currentdist);
-    strcat(file2, "test/"); //////////////// DO CHECKOUT FOR DIR. NAME WITH PRANEET///////////////////
+    strcat(file2, "test/");
     strcat(file2, currentdist);
     strcat(file2, "dist/* > ");
 
