@@ -5,6 +5,7 @@
 #include <unistd.h>
 #include <string.h>
 #include <stdlib.h>
+#include "Assignmentshell.h"
 
 void CopyFileFunction(char constdir[10000]);
 char* CurrentDir(char cwd[10000]);
