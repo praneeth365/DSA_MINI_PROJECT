@@ -118,3 +118,96 @@ void submit(void)// This function will zip the files in the current working dire
     strcat(string,buff1) ;
     system(string) ;
 }
+
+
+int CompareAssignment(char currentdist[100])
+{
+    char currentdist[100] = "assignment1";
+    char dest[10000];
+    CurrentDir(dest);
+    strcat(dest, "/");
+    strcat(dest, currentdist);
+    strcat(dest, "/");
+
+    char file[10000] = "assignment.zip";
+    char unzip[10000] = "unzip ";
+
+    strcat(unzip, file);
+    strcat(unzip, " -d ");
+    strcat(unzip, dest);
+
+    int zippy = system(unzip);
+    //printf("%s\n",unzip);
+    printf(">>> File Extracted...\n");
+    md5comp(currentdist);
+
+    return 0;
+}
+
+int md5comp(char currentdist[100])
+{
+    strcat(currentdist, "/");
+
+    char file1[1000];
+    CurrentDir(file1);
+    strcat(file1,"/");
+    strcat(file1, currentdist);
+    strcat(file1, "dist/*  > "); ///// DO CHECKOUT FOR DIR. NAME WITH PRANEET
+
+    char file2[1000];
+    CurrentDir(file2);
+    strcat(file2,"/");
+    strcat(file2, currentdist);
+    strcat(file2, "test/*  > "); ///// DO CHECKOUT FOR DIR. NAME WITH PRANEET
+
+    char command1[1000] = "md5sum ";
+    char command2[1000] = "md5sum ";
+
+    char checklist1[1000];
+    CurrentDir(checklist1);
+    strcat(checklist1, "/");
+    strcat(checklist1, currentdist);
+    strcat(checklist1, "checklist1.txt");
+
+    char checklist2[1000];
+    CurrentDir(checklist2);
+    strcat(checklist2, "/");
+    strcat(checklist2, currentdist);
+    strcat(checklist2, "checklist2.txt");
+
+    strcat(command1, file1);
+    strcat(command1, checklist1);
+    int sys1 = system(file1);
+    //printf("%s\n", command1);
+
+    strcat(command2, file2);
+    strcat(command2, checklist2);
+    int sys2 = system(file2);
+    //printf("%s\n", command2);
+
+    DiffernceFile(checklist1, checklist2);
+
+    
+    return 0;
+}
+
+int DiffernceFile(char checklist1[1000], char checklist2[1000])
+{
+    char difflist[1000];
+    char arrow[10000] = " > ";
+    CurrentDir(difflist);
+    strcat(arrow, difflist);
+    strcat(arrow, "/DiffFiles.txt ");
+    char diff[10000] = "diff ";
+    
+    strcat(diff, checklist1);
+    strcat(diff, " ");
+    strcat(diff, checklist2);
+    strcat(diff, arrow);
+
+    int sys3 = system(diff);
+    //printf("%s\n",diff);
+    printf(">>> A 'DiffFiles.txt' has been created inside current Assignment\n\n");
+    return 0;
+    
+}
