@@ -89,3 +89,27 @@ void update(char assignment[])
     rmdir(pointer);           //removing the dir created
     CopyFileFunction(pointer1); //after deleting dir the call the copyfile function function to install the new contents
 }
+
+void submit(void)// This function will zip the files in the current working directory and copys that zip file to the home directory
+{
+    char buff1[1000] ;
+    chdir("/home/welcome/DSA_MINI_PROJECT/CPRO") ;
+    getcwd(buff1,100) ;
+    char buff2[1000]="\0" ;
+    strcat(buff2,"zip -r submit.zip ") ;
+    strcat(buff2,buff1) ;
+    system(buff2) ;
+    char buff3[1000]="\0" ;
+    strcat(buff3,buff1) ;
+    strcat(buff3,"/submit.zip ") ;
+    char buff4[1000]="/home/welcome/DSA_MINI_PROJECT" ;
+    char buff5[1000]="cp -r " ;
+    strcat(buff5,buff3) ;
+    strcat(buff5,buff4) ;
+    system(buff5) ;
+    printf("ZIP FILE IS CREATED AND IT IS PRESENT IN HOME DIRECTORY\n") ;
+    strcat(buff1,"/submit.zip") ;
+    char string[100]="rm " ;
+    strcat(string,buff1) ;
+    system(string) ;
+}
