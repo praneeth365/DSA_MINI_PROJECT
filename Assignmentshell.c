@@ -12,6 +12,7 @@ char* CurrentDir(char cwd[10000]);
 int md5comp();
 int DiffernceFile();
 
+////////////////////////////////TEST ASSIGNMENT///////////////////////////////////////////
 void TestAssignment(char assignment[100])
 {
     char buff1[200]="\0" ;
@@ -23,6 +24,9 @@ void TestAssignment(char assignment[100])
     strcat(buff2,buff1) ;
     system(buff2) ;
 }
+////////////////////////////////TEST ASSIGNMENT///////////////////////////////////////////
+
+////////////////////////////////SWITCH ASSIGNMENT///////////////////////////////////////////
 void Switch(char *path, char *subject)
 {
     char path1[100]="\0";
@@ -40,7 +44,7 @@ void Switch(char *path, char *subject)
         chdir(buff2) ;
     }   
 }
-
+////////////////////////////////SWITCH ASSIGNMENT///////////////////////////////////////////
 
 ////////////////////////////////CREATE ASSIGNMENT///////////////////////////////////////////
 int CreateAssignment(char assignment[10000])
@@ -54,8 +58,8 @@ int CreateAssignment(char assignment[10000])
     // Creating a directory
     printf("\n");
     strcat(constdir, assignment);
-    if (mkdir(constdir, 0777) == -1)
-    {
+    if (mkdir(constdir, 0777) == -1)           //creating new directory
+    {                                          //if directory already present
         printf(">>> Error --> Folder Already Exists!!\n");
         printf(">>> Do you want to copy file to the existing folder? (y/n)\n");
         printf(">>> ");
@@ -75,7 +79,7 @@ int CreateAssignment(char assignment[10000])
         }
     }
 
-    else
+    else                                     //if directory doesn't present
     {
         printf(">>> New Directory created\n");
         CopyFileFunction(constdir);
@@ -92,11 +96,11 @@ void CopyFileFunction(char constdir[10000])
     strcat(src, constdir);
     strcat(movFunction, src);
 
-    int r = system(movFunction);
+    int r = system(movFunction);           //moves dist folder from downloads to assignment folder
     return;
 }
 
-char* CurrentDir(char cwd[10000])
+char* CurrentDir(char cwd[10000])          ///////////// UTILITY FUNCTION TO GET CURRENT DIRECTORY PATH /////////////
 {
 
     if (getcwd(cwd, 10000) == NULL)
@@ -152,12 +156,12 @@ void SubmitAssignment(char arg[100])// This function will zip the files in the c
     system(buff4) ; 
     printf("ZIP FILE IS CREATED\n") ;
 }
-
 ////////////////////////////////SUBMIT ASSIGNMENT///////////////////////////////////////////
+
 ////////////////////////////////COMPARE ASSIGNMENT///////////////////////////////////////////
 int CompareAssignment(char currentdist[100])
 {
-    char dest[10000];
+    char dest[10000];        //creates a temporary folder called test where the zip is unzipped
     CurrentDir(dest);
     strcat(dest, "/");
     strcat(dest, currentdist);
@@ -165,7 +169,7 @@ int CompareAssignment(char currentdist[100])
     strcat(dest,"test/ ") ;
     char file[10000]="\0" ;
 
-    CurrentDir(file);
+    CurrentDir(file);      
     strcat(file, "/");
     strcat(file,currentdist) ;
     strcat(file, "/assignment.zip");
@@ -175,10 +179,10 @@ int CompareAssignment(char currentdist[100])
     strcat(unzip, " -d ");
     strcat(unzip, dest);
 
-    int zippy = system(unzip);
-    printf("%s\n",unzip);
+    int zippy = system(unzip);     //sends the command unzip assignment.zip -d path/to/dir to system() function
+    //printf("%s\n",unzip);
     printf(">>> File Extracted...\n");
-    md5comp(currentdist);
+    md5comp(currentdist);          //calss md5sum function
 
     return 0;
 }
@@ -187,13 +191,13 @@ int md5comp(char currentdist[100])
 {
     strcat(currentdist, "/");
 
-    char file1[1000];
+    char file1[1000];             //creates path for dist folder
     CurrentDir(file1);
     strcat(file1,"/");
     strcat(file1, currentdist);
     strcat(file1, "dist  > ");
 
-    char file2[1000];
+    char file2[1000];             //creates path for test folder
     CurrentDir(file2);
     strcat(file2,"/");
     strcat(file2, currentdist);
@@ -208,24 +212,25 @@ int md5comp(char currentdist[100])
     CurrentDir(checklist1);
     strcat(checklist1, "/");
     strcat(checklist1, currentdist);
-    strcat(checklist1, "checklist1.txt");
+    strcat(checklist1, "checklist1.txt");       //creates path for checklist1.txt
 
     char checklist2[1000];
     CurrentDir(checklist2);
     strcat(checklist2, "/");
     strcat(checklist2, currentdist);
-    strcat(checklist2, "checklist2.txt");
+    strcat(checklist2, "checklist2.txt");       //creates path for checklist2.txt
+    
     strcat(command1, file1);
     strcat(command1, checklist1);
-    int sys1 = system(file1);
+    int sys1 = system(file1);                   //calls system() to route all the hashvalues of files in dist folder to checklist1
     printf("%s\n", command1);
 
     strcat(command2, file2);
     strcat(command2, checklist2);
     int sys2 = system(file2);
-    printf("%s\n", command2);
+    printf("%s\n", command2);                   //calls system() to route all the hashvalues of files in test folder to checklist1
 
-    DiffernceFile(checklist1, checklist2);
+    DiffernceFile(checklist1, checklist2);      //calls differenceFile command to compare checklist1/2.txt
 
     
     return 0;
@@ -238,14 +243,14 @@ int DiffernceFile(char checklist1[1000], char checklist2[1000])
     CurrentDir(difflist);
     strcat(arrow, difflist);
     strcat(arrow, "/DiffFiles.txt ");
-    char diff[10000] = "diff ";
+    char diff[10000] = "diff ";                 
     
     strcat(diff, checklist1);
     strcat(diff, " ");
     strcat(diff, checklist2);
-    strcat(diff, arrow);
+    strcat(diff, arrow);                       //creates diff command for system() function
 
-    int sys3 = system(diff);
+    int sys3 = system(diff);                   //calls system() command to route difference in the hashvalues of checklist1/2 in diffFiles.txt
     printf("%s\n",diff);
     printf(">>> A 'DiffFiles.txt' has been created inside current Assignment\n\n");
     return 0;
