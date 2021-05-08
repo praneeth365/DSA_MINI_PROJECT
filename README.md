@@ -10,4 +10,4 @@ description of submit assignment function:
 description of test assignment function:
 1. In this function we will run submitter.py on our files to check if there are any compilation errors or incorrect folder structure.
 2. In this function we will compile the python file using system function and run that file.
-3. After running submitter.py the output is redirect to another file debug.txt Now we can send this file for debugging.
+3. After running submitter.py the output is redirected to another file debug.txt Now we can send this file for debugging.
