@@ -17,6 +17,8 @@ void TestAssignment(char assignment[100])
 	system("./a.out > /home/welcome/debug.txt") ;
 }
 
+
+////////////////////////////////CREATE ASSIGNMENT///////////////////////////////////////////
 int createAssignment(char assignment[10000])
 {
     char yn[2];
@@ -79,6 +81,9 @@ char* CurrentDir(char cwd[10000])
 
     return cwd;
 }
+////////////////////////////////CREATE ASSIGNMENT///////////////////////////////////////////
+
+////////////////////////////////UPDATE ASSIGNMENT///////////////////////////////////////////
 void UpdateAssignment(char assignment[])
 {
     char pointer[300], pointer1[300];
@@ -97,6 +102,10 @@ void UpdateAssignment(char assignment[])
     CopyFileFunction(pointer1); // after deleting dist the call the copyfile function function to install the new contents of the dist
 }
 
+////////////////////////////////UPDATE ASSIGNMENT///////////////////////////////////////////
+
+
+////////////////////////////////SUBMIT ASSIGNMENT///////////////////////////////////////////
 void submit(void)// This function will zip the files in the current working directory and copys that zip file to the home directory
 {
     char buff1[1000] ;
@@ -121,7 +130,9 @@ void submit(void)// This function will zip the files in the current working dire
     system(string) ;
 }
 
+////////////////////////////////SUBMIT ASSIGNMENT///////////////////////////////////////////
 
+////////////////////////////////COMPARE ASSIGNMENT///////////////////////////////////////////
 int CompareAssignment(char currentdist[100])
 {
     char currentdist[100] = "assignment1";
@@ -154,13 +165,13 @@ int md5comp(char currentdist[100])
     CurrentDir(file1);
     strcat(file1,"/");
     strcat(file1, currentdist);
-    strcat(file1, "dist/*  > "); ///// DO CHECKOUT FOR DIR. NAME WITH PRANEET
+    strcat(file1, "dist/*  > "); //////////////// DO CHECKOUT FOR DIR. NAME WITH PRANEET///////////////////
 
     char file2[1000];
     CurrentDir(file2);
     strcat(file2,"/");
     strcat(file2, currentdist);
-    strcat(file2, "test/*  > "); ///// DO CHECKOUT FOR DIR. NAME WITH PRANEET
+    strcat(file2, "test/*  > "); //////////////// DO CHECKOUT FOR DIR. NAME WITH PRANEET///////////////////
 
     char command1[1000] = "md5sum ";
     char command2[1000] = "md5sum ";
@@ -213,3 +224,4 @@ int DiffernceFile(char checklist1[1000], char checklist2[1000])
     return 0;
     
 }
+////////////////////////////////COMPARE ASSIGNMENT///////////////////////////////////////////
