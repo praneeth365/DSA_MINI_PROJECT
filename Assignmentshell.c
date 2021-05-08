@@ -24,6 +24,17 @@ void TestAssignment(char assignment[100])
     system(buff2) ;
 }
 
+void Switch(char *path, char *subject)
+{
+    char *path1;
+    strcpy(path1, path);
+    path1 = strcat(path1, "/");
+    path1 = strcat(path1, subject);
+    int x=chdir(path1);
+    if(x!=0)
+    printf("SUBJECT NOT FOUND") ;
+}
+
 
 ////////////////////////////////CREATE ASSIGNMENT///////////////////////////////////////////
 int CreateAssignment(char assignment[10000])
