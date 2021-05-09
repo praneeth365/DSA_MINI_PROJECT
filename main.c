@@ -17,8 +17,8 @@ int main()
     int i = 0;
     char assignment[100];
     char pathtofolder[200];
-    memset(pathtofolder, '\0', sizeof(pathtofolder));
-    getcwd(pathtofolder, 200);
+    memset(pathtofolder, '\0', sizeof(pathtofolder));//making the path of the folder to the null
+    getcwd(pathtofolder, 200);//to store the path of the directory in which the code is present
     int t=0 ;
     while (1)
     {
@@ -34,6 +34,7 @@ int main()
             break;
         if ((!argument) && t) //this is find wheather there is an argument or not(if argument=NULL then if(!argument)is true)
         {                     // based on the command we call the relevent function
+            //t says wheather the we ues if t=0 then the use is not used previously atleast once
             if (strcmp(string, "create\n") == 0)
                 CreateAssignment(assignment);
 
