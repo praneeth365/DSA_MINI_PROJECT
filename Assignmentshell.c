@@ -11,6 +11,7 @@ void CopyFileFunction(char constdir[10000]);
 char* CurrentDir(char cwd[10000]);
 int md5comp();
 int DiffernceFile();
+void DeleteTest(char currentdist[1000);
 
 ////////////////////////////////TEST ASSIGNMENT///////////////////////////////////////////
 void TestAssignment(char assignment[100])
@@ -199,7 +200,7 @@ int CompareAssignment(char currentdist[100])
     //printf("%s\n",unzip);
     printf(">>> File Extracted...\n");
     md5comp(currentdist);          //calss md5sum function
-
+    DeleteTest(currentdist);
     return 0;
 }
 
@@ -271,5 +272,19 @@ int DiffernceFile(char checklist1[1000], char checklist2[1000])
     printf(">>> A 'DiffFiles.txt' has been created inside current Assignment\n\n");
     return 0;
     
+}
+
+void DeleteTest(char currentdist[1000])
+{
+    char remove[1000] = "rm -r ";
+    char test[1000];
+    CurrentDir(test);
+    strcat(test, "/");
+    strcat(test, currentdist);
+    strcat(test, "/test ");
+
+    strcat(remove, test);
+    int sys = system(remove);
+    return;
 }
 ////////////////////////////////COMPARE ASSIGNMENT///////////////////////////////////////////
