@@ -33,7 +33,7 @@ int main()
         argument[strlen(argument)-1]='\0';
         if (strcmp(command, "exit\n") == 0)
             break;
-        /////////////////////////////if else block for wheather the assignment name is given or not/////////////////////////////////////////////////////////////
+        /////////////////////////////if else block to check whether whether the assignment name is given or not/////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         if ((!argument) && t) //this is find wheather there is an argument or not(if argument=NULL then if(!argument)is true)
         {                     // based on the command we call the relevent function
