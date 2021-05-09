@@ -1,6 +1,7 @@
 # DSA_MINI_PROJECT
                                                                    TEAM 53
                                                             Assignment Shell Project
+  THIS CODE WILL ONLY WORK IN LINUX OS since in system function we gave commands assuming OS is LINUX
 Instructions to be followed during the running of code:
 1. The code for the project must be present in the same directory where subjects are present.
 2. Note that before executing any command the first command for the programme should be switch because then only the current working directory of programme will be a subject and now we can use other commands.
@@ -53,5 +54,5 @@ Description of Update Assignment Function:
 
 Description of Use Assignment Function (implemented in main):
 1. For this we have to store the argument in this command in a string.
-2. Then when argument is null then we call other functions by passing the previously saved string as argument.
+2. when argument is null then we call other functions by passing the previously saved string as argument.
 3. To this we have to modify the main function .
