@@ -5,9 +5,10 @@ Instructions to be followed during the running of code:
 1. The code for the project must be present in the same directory where subjects are present.
 2. Note that before executing any command the first command for the programme should be switch because then only the current working directory of programme will be a subject and now we can use other commands.
 3. Before entering the command create or update we need to ensure that there is a dist folder present in the Downloads because these two functions need a dist folder.
-4. Note that in compare assignment command the command should be either (compare or compare <name of assignment>) i.e we should not mention the name of the zip file in the command(the name of the zip file is default taken as assignment.zip) and before entering compare command we need to ensure that there is a zip file present in the downloads named assignment.zip.
+4. Note that in compare assignment command the command should be either (compare or compare "name of assignment") i.e we should not mention the name of the zip file in the command(the name of the zip file is default taken as assignment.zip) and before entering compare command we need to ensure that there is a zip file present in the downloads named assignment.zip.
 5. after entering the test command we need to enter 2020101040. Now the compilation errors are sent into a file named debug.txt
 6. Note that the zip file used for compare assignment should have a folder with name of assignment and that folder should contain a dist folder.
+7. enter the exit command when you want to terminate the programme
 
 commands must be given in the below format:
 1. switch "name of assignment" or switch (if use command is entered previously)
