@@ -35,9 +35,9 @@ int main()
             break;
         /////////////////////////////if else block to check whether whether the assignment name is given or not/////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        if ((!argument) && t) //this is find wheather there is an argument or not(if argument=NULL then if(!argument)is true)
-        {                     // based on the command we call the relevent function
-            //t says wheather the we ues if t=0 then the use is not used previously atleast once
+        if ((!argument) && t) // condition to check that an arguement is meant, i.e. arguement is not NULL
+        {                     // based on the command we call the relevant function
+            // if t=0 then the use is not used previously atleast once
             if (strcmp(string, "create\n") == 0)// when argument =null and t=1 and the command is create  the it calls the create function
                 CreateAssignment(assignment);//the argument is the assignment (the argument in the previous use assignment)
 
@@ -58,22 +58,22 @@ int main()
             if (strcmp(command, "switch") == 0)//when there is an argument is not null and the command is switch  
               Switch(pathtofolder, argument);//the argumnets are pathtofolder and the argument 
 
-            else if (strcmp(command, "create") == 0)//when there is an argument is not null and the command is create
+            else if (strcmp(command, "create") == 0)//when the argument is not null and the command is create
                 CreateAssignment(argument);
 
-            else if (strcmp(command, "update") == 0)//when there is an argument is not null and the command is update
+            else if (strcmp(command, "update") == 0)//when the argument is not null and the command is update
                UpdateAssignment(argument);
 
-            else if (strcmp(command, "test") == 0)//when there is an argument is not null and the command is test
+            else if (strcmp(command, "test") == 0)//when the argument is not null and the command is test
                  TestAssignment(argument);
 
             else if (strcmp(command, "submit") == 0)//when there is an argument is not null and the command is submit
              SubmitAssignment(argument);
 
-            else if (strcmp(command, "compare") == 0)//when there is an argument is not null and the command is compare
+            else if (strcmp(command, "compare") == 0)//when the argument is not null and the command is compare
                  CompareAssignment(argument);
 
-            else if (strcmp(command, "use") == 0)//when there is an argument is not null and the command is use
+            else if (strcmp(command, "use") == 0)//when the argument is not null and the command is use
             {
                 memset(assignment, '\0', sizeof(assignment));// first removing the previous assignment name (making the string null)
                 strcpy(assignment, argument);//then storing the name of assignment given with use command into the assignment string
@@ -85,6 +85,6 @@ int main()
         }
     }
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    /////////////////////////////if else block for wheather the assignment name is given or not//////////////////////////////////////////////////////////////
+    /////////////////////////////if else block for whether the assignment name is given or not//////////////////////////////////////////////////////////////
     return 0;
 }
