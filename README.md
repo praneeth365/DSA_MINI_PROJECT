@@ -41,10 +41,6 @@ Description of Compare Assignment Function:
 3. Diff function will be called on these two files and the differnce will be routed to a "DiffFiles.txt" file in aassignment folder.
 4. The test folder will be deleted.
 
-Description of Delete Assignment Function:
-1. The input for this function will be the name of the assignment which the user wishes to remove from the memory.
-2. This function will then free the memory containing data of the assignment specified by the user.
-
 Description of Switch Assignment Function:
 1. The input of this function is the name of the subject (subject folder).
 2. This function will change the current working directory to specified destination subject folder.
