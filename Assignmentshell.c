@@ -17,32 +17,33 @@ void DeleteTest(char currentdist[1000]);
 void TestAssignment(char assignment[100])
 {
     char buff1[200]="\0" ;
-    getcwd(buff1,200) ;
+    getcwd(buff1,200) ; // This function will copy the path of current working directory into buff1
     strcat(buff1,"/") ;
     strcat(buff1,assignment) ;
     strcat(buff1,"/dist/submitter.py > debug.txt") ;
     char buff2[200]="python3 " ;
     strcat(buff2,buff1) ;
-    system(buff2) ;
+    system(buff2) ;// Here we are giving the command python3 <path of submitter.py> > debug.txt to the system function so that the output of submitter.py is redirected to debug.txt
 }
 ////////////////////////////////TEST ASSIGNMENT///////////////////////////////////////////
 
 ////////////////////////////////SWITCH ASSIGNMENT///////////////////////////////////////////
-void Switch(char *path, char *subject)
+void Switch(char *path, char *subject)// This function will change the current working directory to the mentioned subject
 {
     char path1[100]="\0";
     strcpy(path1, path);
     strcat(path1, "/");
     strcat(path1, subject);
-    int x=chdir(path1);
+    int x=chdir(path1);// Here if the subject mentioned is aldready present in the directory then the directory is changed to the mentioned subject and x will be 0 in that case if the mentioned subject is 
+                       // not present then x will be -1
     if(x!=0)
     {
         char buff2[100]="\0" ;
         strcat(buff2,path) ;
         strcat(buff2,"/") ;
         strcat(buff2,subject) ;
-        mkdir(buff2,0777) ;
-        chdir(buff2) ;
+        mkdir(buff2,0777) ; // Here we are creating the subject if mentioned subject is not there in directory
+        chdir(buff2) ; // Now we are changing the directory to the created subject
     }   
 }
 ////////////////////////////////SWITCH ASSIGNMENT///////////////////////////////////////////
@@ -152,7 +153,7 @@ void SubmitAssignment(char arg[100])// This function will zip the files in the c
     char buff2[1000]="\0" ;
     strcat(buff2,"zip -r submit.zip ") ;
     strcat(buff2,buff1) ;
-    system(buff2) ;
+    system(buff2) ; // here we are giving  zip -r submit.zip <name of assignment> command to the system function so that a zip file of the assignment is created actually this zip file is present inside subject directory not in assignment directory.
     char buff3[100]="\0" ;
     getcwd(buff3,100) ;
     strcat(buff3,"/submit.zip") ;
@@ -165,7 +166,8 @@ void SubmitAssignment(char arg[100])// This function will zip the files in the c
     strcat(buff5,arg) ;
     strcat(buff4," ") ;
     strcat(buff4,buff5) ;
-    system(buff4) ; 
+    system(buff4) ; // Since the zip file is present in the subject directory here we are moving that zip file from subject directory to assignment directory Hence 
+                    // submit.zip file will be present in the assignment folder.
     printf("ZIP FILE IS CREATED\n") ;
 }
 ////////////////////////////////SUBMIT ASSIGNMENT///////////////////////////////////////////
