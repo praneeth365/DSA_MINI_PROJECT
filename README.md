@@ -47,3 +47,14 @@ Description of Delete Assignment Function:
 Description of Switch Assignment Function:
 1. The input of this function is the name of the subject (subject folder).
 2. This function will change the current working directory to specified destination subject folder.
+
+Description of Update Assignment Function:
+1. in this function we will remove the dist folder of the assignment name given as the argument to this fuction
+2. for that we use system function after deletion of the dist
+3. we cut the dist folder provided to us and then paste in  the assignment so the assignment is update
+4. in cut paste we use CopyFilefunction in which the path is already set to the directory where we cut the dist folder
+
+Description of Use Assignment Function:
+1.for this we have to store the argument in this command in a string
+2.then when argument is null then we call other functions by passing the previously saved string as argument
+3.to this we have to modify the main function .
