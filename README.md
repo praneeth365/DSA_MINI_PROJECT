@@ -1,7 +1,8 @@
 # DSA_MINI_PROJECT
                                                                    TEAM 53
                                                             Assignment Shell Project
-  THIS CODE WILL ONLY WORK IN LINUX OS since in system function we gave commands assuming OS is LINUX
+ THIS CODE WILL ONLY WORK IN LINUX OS since in system function we gave commands assuming OS is LINUX
+   
 Instructions to be followed during the running of code:
 1. The code for the project must be present in the same directory where subjects are present.
 2. Note that before executing any command the first command for the programme should be switch because then only the current working directory of programme will be a subject and now we can use other commands.
