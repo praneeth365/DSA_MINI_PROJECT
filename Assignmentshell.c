@@ -139,7 +139,6 @@ void UpdateAssignment(char assignment[])
     strcat(pointer2, pointer);  // making pointer 2 as mv -v path to the dist folder in assignment
     system(pointer2);           //this step is to remove the dist folder in the assignment
     CopyFileFunction(pointer1); // after deleting dist the call the copyfile function function to install the new contents of the dist
-     printf(">>>the dist in the %s is updated\n",assignment);
 }
 
 ////////////////////////////////UPDATE ASSIGNMENT///////////////////////////////////////////
