@@ -5,7 +5,7 @@
 #include <unistd.h>
 #include <string.h>
 #include <stdlib.h>
-#include "Assignmentshell.h"
+#include "Assignmentshell.c"
 ////////////// headerfiles///////////////
 
 
