@@ -11,7 +11,7 @@ void CopyFileFunction(char constdir[10000]);
 char* CurrentDir(char cwd[10000]);
 int md5comp();
 int DiffernceFile();
-void DeleteTest(char currentdist[1000);
+void DeleteTest(char currentdist[1000]);
 
 ////////////////////////////////TEST ASSIGNMENT///////////////////////////////////////////
 void TestAssignment(char assignment[100])
