@@ -10,13 +10,13 @@ Instructions to be followed during the running of code:
 6. Note that the zip file used for compare assignment should have a folder with name of assignment and that folder should contain a dist folder.
 
 commands must be given in the below format:
-1. switch <name of assignment> or switch (if use command is entered previously)
-2. create <name of assignment> or create (if use command is entered previously)
-3. update <name of assignment> or update (if use command is entered previously)
-4. test <name of assignment> or test (if use command is entered previously)
-5. submit <name of assignment> or submit (if use command is entered previously)
-6. compare <name of assignment> or compare (if use command is entered previously) Note that here we are not giving the name of zip file in the command The name of the zip file is default taken as assignment.zip
-7. use <name of assignment> 
+1. switch "name of assignment" or switch (if use command is entered previously)
+2. create "name of assignment" or create (if use command is entered previously)
+3. update "name of assignment" or update (if use command is entered previously)
+4. test "name of assignment" or test (if use command is entered previously)
+5. submit "name of assignment" or submit (if use command is entered previously)
+6. compare "name of assignment" or compare (if use command is entered previously) Note that here we are not giving the name of zip file in the command The name of the zip file is default taken as assignment.zip
+7. use "name of assignment" 
 
 
 Description of submit assignment Function:
