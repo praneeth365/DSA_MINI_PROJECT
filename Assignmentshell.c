@@ -91,12 +91,23 @@ int CreateAssignment(char assignment[10000])
 void CopyFileFunction(char constdir[10000])
 {
     char movFunction[10000] = "mv -v ";
-    char src[10000] = "/home/welcome/Downloads/dist/ ";
+    char src[10000] = "/home/welcome/Downloads/dist ";
 
     strcat(src, constdir);
     strcat(movFunction, src);
 
     int r = system(movFunction);           //moves dist folder from downloads to assignment folder
+    return;
+}
+void CopyFileFunction2(char constdir[1000])
+{
+    char movFunction[10000] = "mv -v ";
+    char src[10000] = "/home/welcome/Downloads/assignment.zip ";
+
+    strcat(src, constdir);
+    strcat(movFunction, src);
+
+    int r = system(movFunction);           //moves assignment.zip from downloads to assignment folder
     return;
 }
 
@@ -138,12 +149,12 @@ void SubmitAssignment(char arg[100])// This function will zip the files in the c
     char buff1[1000]="\0" ;
     strcat(buff1,arg) ;
     char buff2[1000]="\0" ;
-    strcat(buff2,"zip -r assignment.zip ") ;
+    strcat(buff2,"zip -r submit.zip ") ;
     strcat(buff2,buff1) ;
     system(buff2) ;
     char buff3[100]="\0" ;
     getcwd(buff3,100) ;
-    strcat(buff3,"/assignment.zip") ;
+    strcat(buff3,"/submit.zip") ;
     char buff4[100]="\0" ;
     strcat(buff4,"mv -v ") ;
     strcat(buff4,buff3) ;
@@ -163,6 +174,11 @@ int CompareAssignment(char currentdist[100])
 {
     char dest[10000];        //creates a temporary folder called test where the zip is unzipped
     CurrentDir(dest);
+    char buff1[1000]="\0" ;
+    strcat(buff1,dest) ;
+    strcat(buff1,"/") ;
+    strcat(buff1,currentdist) ;
+    CopyFileFunction2(buff1) ;
     strcat(dest, "/");
     strcat(dest, currentdist);
     strcat(dest, "/");
