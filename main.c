@@ -33,7 +33,7 @@ int main()
         argument[strlen(argument)-1]='\0';
         if (strcmp(command, "exit\n") == 0)
             break;
-        /////////////////////////////if else block to check whether whether the assignment name is given or not/////////////////////////////////////////////////
+        /////////////////////////////if else block to detect the assignment name is given or not/////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         if ((!argument) && t) // condition to check that an arguement is meant, i.e. arguement is not NULL
         {                     // based on the command we call the relevant function
