@@ -4,7 +4,7 @@
 #include <unistd.h>
 #include <string.h>
 #include <stdlib.h>
-#include "Assignmentshell.c"
+#include "Assignmentshell.h"
 
 
 
